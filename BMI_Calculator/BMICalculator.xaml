@@ -3,10 +3,103 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BMI_Calculator.BMICalculator"
              Title="BMICalculator">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="25">
+            <Label 
+            Text="BMI Calculator"
+            FontSize="32"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            TextColor="Black"/>
+
+            <Label Text="Select Gender"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
+                <Border x:Name="MaleBorder"
+                        Stroke="Transparent"
+                        StrokeThickness="4"
+                        Padding="10"
+                        BackgroundColor="White">
+
+                    <Image x:Name="MaleImage"
+                          Source="male.png"
+                          WidthRequest="120"
+                          HeightRequest="220">
+                        <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MaleTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+
+                <Border x:Name="FemaleBorder"
+                        Stroke="Transparent"
+                        StrokeThickness="4"
+                        Padding="10"
+                        BackgroundColor="White">
+
+                    <Image x:Name="FemaleImage"
+                           Source="female.png"
+                           WidthRequest="120"
+                           HeightRequest="220">
+                        <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FemaleTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+            </HorizontalStackLayout>
+
+            <Label x:Name="GenderLabel"
+                   Text="Selected Gender: None"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+
+            <VerticalStackLayout Spacing="10">
+                <Label x:Name="WeightLabel"
+                       Text="Weight: 90 lbs"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+
+                <Slider x:Name="WeightSlider"
+                        Minimum="0"
+                        Maximum="300"
+                        Value="90"
+                        ValueChanged="SliderValueChanged"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label x:Name="HeightLabel"
+                               Text="Height: 50 Inches"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+                <Slider x:Name="HeightSlider"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="50"
+                        ValueChanged="SliderValueChanged"/>
+
+            </VerticalStackLayout>
+
+            <Button Text="Calculate BMI"
+                    Clicked="CalculateBMIClicked"
+                    BackgroundColor="LightBlue"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    HeightRequest="55"
+                    HorizontalOptions="Fill"
+                    />
+
+            
+
+
+
+        </VerticalStackLayout>
+        
+        
+    </ScrollView>
 </ContentPage>
